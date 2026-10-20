@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827"><title>ClockIT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-icon">◷</span> ClockIT</a><nav><a href="helpful.html">Helpful Stuff</a><a href="https://spotify-pink-iota.vercel.app" target="_blank" rel="noreferrer">Focusify Music ↗</a></nav></header>
+  <main class="hero-wrap">
+    <section class="hero">
+      <div class="eyebrow">YOUR LITTLE CORNER OF THE INTERNET</div>
+      <h1>Make time<br><span>work for you.</span></h1>
+      <p class="lead">A calmer launchpad for school, focus, useful tools, and keeping in touch.</p>
+      <div class="clock-panel"><div id="clock" class="clock">--:--:--</div><div id="today" class="today">Loading your date…</div></div>
+      <div class="actions"><a class="button primary" href="helpful.html">Open Helpful Stuff <span>↗</span></a><a class="button secondary" href="https://spotify-pink-iota.vercel.app" target="_blank" rel="noreferrer">Open Focusify Music <span>♫</span></a></div>
+    </section>
+    <section class="tiles">
+      <a class="tile" href="helpful.html#study"><span class="tile-icon">✎</span><strong>Study tools</strong><span>Get unstuck and get it done.</span></a>
+      <a class="tile" href="helpful.html#focus"><span class="tile-icon">◴</span><strong>Timers & focus</strong><span>Small sprints, real breaks.</span></a>
+      <a class="tile" href="helpful.html#chat"><span class="tile-icon">♡</span><strong>Private chat</strong><span>A little chat space for two.</span></a>
+    </section>
+    <p class="note">ClockIT is a personal project. School networks may restrict some links or services.</p>
+  </main>
+  <footer>ClockIT · Built for the things that matter.</footer>
+  <script>function tick(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit',second:'2-digit'});document.getElementById('today').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric',year:'numeric'});}tick();setInterval(tick,1000);</script>
+</body></html>
