@@ -1,27 +1,95 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#111827"><title>ClockIT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101322">
+  <title>ClockIT · Clock & Chat</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar"><a class="brand" href="index.html"><span class="brand-icon">◷</span> ClockIT</a><nav><a href="helpful.html">Helpful Stuff</a><a href="https://spotify-pink-iota.vercel.app" target="_blank" rel="noreferrer">Focusify Music ↗</a></nav></header>
-  <main class="hero-wrap">
-    <section class="hero">
-      <div class="eyebrow">YOUR LITTLE CORNER OF THE INTERNET</div>
-      <h1>Make time<br><span>work for you.</span></h1>
-      <p class="lead">A calmer launchpad for school, focus, useful tools, and keeping in touch.</p>
-      <div class="clock-panel"><div id="clock" class="clock">--:--:--</div><div id="today" class="today">Loading your date…</div></div>
-      <div class="actions"><a class="button primary" href="helpful.html">Open Helpful Stuff <span>↗</span></a><a class="button secondary" href="https://spotify-pink-iota.vercel.app" target="_blank" rel="noreferrer">Open Focusify Music <span>♫</span></a></div>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="ClockIT home"><span class="brand-icon">◷</span> ClockIT</a>
+    <span class="topbar-tag">your little corner of the internet</span>
+  </header>
+
+  <main class="app-wrap">
+    <section class="clock-card" aria-label="Current time">
+      <div class="section-kicker">RIGHT NOW</div>
+      <div id="clock" class="clock">--:--:--</div>
+      <div id="today" class="today">Loading your date…</div>
     </section>
-    <section class="tiles">
-      <a class="tile" href="helpful.html#study"><span class="tile-icon">✎</span><strong>Study tools</strong><span>Get unstuck and get it done.</span></a>
-      <a class="tile" href="helpful.html#focus"><span class="tile-icon">◴</span><strong>Timers & focus</strong><span>Small sprints, real breaks.</span></a>
-      <a class="tile" href="helpful.html#chat"><span class="tile-icon">♡</span><strong>Private chat</strong><span>A little chat space for two.</span></a>
+
+    <section class="chat-section" aria-labelledby="chatTitle">
+      <div class="section-heading">
+        <div><div class="section-kicker">JUST YOU TWO</div><h1 id="chatTitle">Our <span>chat.</span></h1></div>
+        <div class="privacy-pill"><span class="online-dot"></span> Private chat</div>
+      </div>
+      <p class="chat-intro">A small place to talk, with your own profile and picture.</p>
+
+      <div class="chat-card">
+        <div id="loginPanel" class="login-panel">
+          <div class="login-mark">♡</div>
+          <p class="small-label">SIGN IN TO YOUR SPACE</p>
+          <label for="username">Username</label>
+          <input id="username" autocomplete="username" placeholder="Your username" maxlength="64">
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Your password">
+          <button id="loginButton" class="button primary full-width" type="button">Open chat <span>→</span></button>
+          <p id="loginStatus" class="status" role="status"></p>
+        </div>
+
+        <div id="chatPanel" hidden>
+          <div class="chat-top">
+            <div id="myAvatar" class="avatar avatar-small">🌿</div>
+            <div class="chat-title-group"><b id="chatGreeting">ClockIT Chat</b><span id="connectionStatus" class="muted">Connecting…</span></div>
+            <button id="settingsToggle" class="button secondary icon-button" type="button" aria-expanded="false"><span aria-hidden="true">⚙</span> Settings</button>
+            <button id="logoutButton" class="button secondary small-button" type="button">Log out</button>
+          </div>
+
+          <section id="settingsPanel" class="settings-panel" hidden aria-label="Your profile settings">
+            <div class="settings-heading"><div><p class="small-label">MAKE IT YOURS</p><h2>Your profile</h2></div><span class="settings-hint">Only share what you're comfortable sharing.</span></div>
+            <label for="displayName">Display name</label>
+            <input id="displayName" maxlength="24" placeholder="What should your person see?">
+            <span class="field-hint">Up to 24 characters. Your login username won't change.</span>
+            <span class="form-label">Profile picture</span>
+            <div id="avatarChoices" class="avatar-choices" role="group" aria-label="Choose a profile picture">
+              <button type="button" class="avatar-choice" data-avatar="🌿" aria-label="Leaf avatar">🌿</button>
+              <button type="button" class="avatar-choice" data-avatar="🐸" aria-label="Frog avatar">🐸</button>
+              <button type="button" class="avatar-choice" data-avatar="🐻" aria-label="Bear avatar">🐻</button>
+              <button type="button" class="avatar-choice" data-avatar="🐱" aria-label="Cat avatar">🐱</button>
+              <button type="button" class="avatar-choice" data-avatar="🐼" aria-label="Panda avatar">🐼</button>
+              <button type="button" class="avatar-choice" data-avatar="🦊" aria-label="Fox avatar">🦊</button>
+              <button type="button" class="avatar-choice" data-avatar="🐰" aria-label="Rabbit avatar">🐰</button>
+              <button type="button" class="avatar-choice" data-avatar="🐧" aria-label="Penguin avatar">🐧</button>
+              <button type="button" class="avatar-choice" data-avatar="⭐" aria-label="Star avatar">⭐</button>
+              <button type="button" class="avatar-choice" data-avatar="🌙" aria-label="Moon avatar">🌙</button>
+              <button type="button" class="avatar-choice" data-avatar="💚" aria-label="Green heart avatar">💚</button>
+              <button type="button" class="avatar-choice" data-avatar="💜" aria-label="Purple heart avatar">💜</button>
+            </div>
+            <div class="settings-actions"><button id="saveProfile" class="button primary" type="button">Save profile</button><button id="cancelSettings" class="button secondary" type="button">Cancel</button></div>
+            <p id="profileStatus" class="status" role="status"></p>
+          </section>
+
+          <div class="conversation-label"><span>MESSAGES</span><span>Older messages clear after 24 hours</span></div>
+          <div id="messages" class="messages" aria-live="polite" aria-relevant="additions"></div>
+          <form id="messageForm" class="message-form">
+            <input id="messageInput" maxlength="1000" placeholder="Write a message…" autocomplete="off" required aria-label="Message">
+            <button class="button primary send-button" type="submit" aria-label="Send message">Send <span>↑</span></button>
+          </form>
+          <p id="chatStatus" class="status" role="status"></p>
+        </div>
+      </div>
+      <p class="tiny-note">Keep your login private. Messages are stored on the computer hosting the chat and are scheduled for deletion after 24 hours.</p>
     </section>
-    <p class="note">ClockIT is a personal project. School networks may restrict some links or services.</p>
   </main>
-  <footer>ClockIT · Built for the things that matter.</footer>
-  <script>function tick(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit',second:'2-digit'});document.getElementById('today').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric',year:'numeric'});}tick();setInterval(tick,1000);</script>
-</body></html>
+  <footer>ClockIT <span>·</span> time for what matters.</footer>
+
+  <script src="chat-config.js"></script>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
+  <script src="chat-client.js"></script>
+  <script>
+    function tick(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit',second:'2-digit'});document.getElementById('today').textContent=d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric',year:'numeric'});}tick();setInterval(tick,1000);
+  </script>
+</body>
+</html>
