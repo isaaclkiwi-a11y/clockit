@@ -10,7 +10,6 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="ClockIT home"><span class="brand-icon">◷</span> ClockIT</a>
-    <span class="topbar-tag">your little corner of the internet</span>
   </header>
 
   <main class="app-wrap">
@@ -22,15 +21,13 @@
 
     <section class="chat-section" aria-labelledby="chatTitle">
       <div class="section-heading">
-        <div><div class="section-kicker">JUST YOU TWO</div><h1 id="chatTitle">Our <span>chat.</span></h1></div>
+        <div><h1 id="chatTitle">Chat</h1></div>
         <div class="privacy-pill"><span class="online-dot"></span> Private chat</div>
       </div>
-      <p class="chat-intro">A small place to talk, with your own profile and picture.</p>
 
       <div class="chat-card">
         <div id="loginPanel" class="login-panel">
-          <div class="login-mark">♡</div>
-          <p class="small-label">SIGN IN TO YOUR SPACE</p>
+          <p class="small-label">SIGN IN</p>
           <label for="username">Username</label>
           <input id="username" autocomplete="username" placeholder="Your username" maxlength="64">
           <label for="password">Password</label>
@@ -48,7 +45,7 @@
           </div>
 
           <section id="settingsPanel" class="settings-panel" hidden aria-label="Your profile settings">
-            <div class="settings-heading"><div><p class="small-label">MAKE IT YOURS</p><h2>Your profile</h2></div><span class="settings-hint">Only share what you're comfortable sharing.</span></div>
+            <div class="settings-heading"><div><h2>Profile settings</h2></div></div>
             <label for="displayName">Display name</label>
             <input id="displayName" maxlength="24" placeholder="What should your person see?">
             <span class="field-hint">Up to 24 characters. Your login username won't change.</span>
@@ -83,7 +80,7 @@
       <p class="tiny-note">Keep your login private. Messages are stored on the computer hosting the chat and are scheduled for deletion after 24 hours.</p>
     </section>
   </main>
-  <footer>ClockIT <span>·</span> time for what matters.</footer>
+  <footer>ClockIT</footer>
 
   <script src="chat-config.js"></script>
   <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
